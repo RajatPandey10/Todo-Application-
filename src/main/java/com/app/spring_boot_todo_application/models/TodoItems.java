@@ -2,6 +2,7 @@ package com.app.spring_boot_todo_application.models;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import org.springframework.scheduling.support.SimpleTriggerContext;
 
@@ -16,6 +17,7 @@ public class TodoItems {
 
     private Long id;
 
+    @NotBlank(message = "Description is required")
     private String description;
     private boolean complete;
 

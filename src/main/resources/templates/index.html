@@ -1,12 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css}" />
 </head>
 <body>
-    WELCOME
+    <div class="Container">
+
+        <h1 class="text-center">Todo List</h1>
+        <hr />
+        <p th:text="|Happy ${today}|">Today</p>
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>Actions</th>
+                <th>Id</th>
+                <th>Description</th>
+                <th>Complete</th>
+                <th>Created Date</th>
+                <th>Modified Date</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr th:each="item: ${todoItems}" th:class="${item.complete} ? success: warning">
+                <td>
+                    <div class ="btn btn-group-sm" role="group">
+                        <a class="btn btn-info" th:href="@{/edit/{id}(id=${item.id})}">Edit</a>
+                        <a class="btn btn-danger" th:href="@{/delete/{id}(id=${item.id})}">Delete</a>
+
+                    </div>
+                </td>
+                <td th:text="${item.id}">item_id</td>
+                <td th:text="${item.description}">item_description</td>
+                <td th:text="${item.complete}">item_complete</td>
+                <td th:text="${item.createdDate}">item_createdDate</td>
+                <td th:text="${item.modifyDate}">item_modifiedDate</td>
+            </tr>
+            </tbody>
+        </table>
+        <p> <a class="btn btn-success" href="/create-todo">Add a Todo </a></p>
+    </div>
+
+
+    <!-- jQuery from WebJars -->
+    <script th:src="@{/webjars/jquery/3.6.0/dist/jquery.min.js}"></script>
+
+    <!-- Bootstrap JS from WebJars -->
+    <script th:src="@{/webjars/bootstrap/3.4.1/js/bootstrap.min.js}"></script>
+
 </body>
 </html>
