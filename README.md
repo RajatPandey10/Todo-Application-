@@ -22,13 +22,13 @@ A simple Spring Boot CRUD application to manage daily tasks, with a clean user i
 - **H2 Database**
 - **Thymeleaf**
 ##  📸 Screenshots
+<img width="1361" height="635" alt="Screenshot 2025-08-13 004955" src="https://github.com/user-attachments/assets/fe1d242a-9528-4f2a-b867-75ab607ecdd7" />
+
+<img width="681" height="262" alt="Screenshot 2025-08-13 005100" src="https://github.com/user-attachments/assets/7b53a71d-0f86-4be4-9d32-211a52a3e5bb" />
 
 ## ⚙️ Installation & Setup
 
 1️⃣ Clone the repository
-<img width="1361" height="635" alt="Screenshot 2025-08-13 004955" src="https://github.com/user-attachments/assets/fe1d242a-9528-4f2a-b867-75ab607ecdd7" />
-
-<img width="681" height="262" alt="Screenshot 2025-08-13 005100" src="https://github.com/user-attachments/assets/7b53a71d-0f86-4be4-9d32-211a52a3e5bb" />
 
 - **git clone https://github.com/RajatPandey10/Todo-Application-.git**
 - **cd Todo-Application**
