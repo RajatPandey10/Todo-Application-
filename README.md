@@ -22,9 +22,11 @@ A simple Spring Boot CRUD application to manage daily tasks, with a clean user i
 - **H2 Database**
 - **Thymeleaf**
 ##  📸 Screenshots
-<img width="1361" height="635" alt="Screenshot 2025-08-13 004955" src="https://github.com/user-attachments/assets/fe1d242a-9528-4f2a-b867-75ab607ecdd7" />
+<img width="1904" height="935" alt="Screenshot 2025-12-10 140505" src="https://github.com/user-attachments/assets/85dadabc-1266-401f-8bda-a92baf707305" />
+<img width="1913" height="928" alt="Screenshot 2025-12-10 140520" src="https://github.com/user-attachments/assets/4da88cca-41b9-469e-b2c6-03079e0516e9" />
 
-<img width="681" height="262" alt="Screenshot 2025-08-13 005100" src="https://github.com/user-attachments/assets/7b53a71d-0f86-4be4-9d32-211a52a3e5bb" />
+
+
 
 ## ⚙️ Installation & Setup
 
