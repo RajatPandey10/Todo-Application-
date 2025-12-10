@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Todo - RP</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+<!-- Header -->
+<header class="rp-header">
+    <div class="rp-header-inner container">
+        <div class="rp-brand">
+            <img th:src="@{/images/rp_logo.png}" alt="RP Logo" class="rp-logo" />
+            <div>
+                <div class="rp-title">RP</div>
+                <div class="rp-sub">CONCEPTS TO CREATIONS</div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<main class="container rp-main">
+    <div class="card rp-card">
+        <div class="card-body">
+            <h2 class="rp-h2">Add a new Todo Item</h2>
+            <form action="#" th:action="@{/todo}" th:object="${todoItems}" method="POST" class="rp-form">
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input class="form-control input-lg" type="text" th:field="*{description}" id="description" placeholder="Description">
+                    <span class="rp-error" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg rp-btn">Add todo!</button>
+                <a th:href="@{/}" class="btn btn-link rp-link">Back to list</a>
+            </form>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="rp-footer">
+    <div class="container rp-footer-inner">
+        <div class="rp-social">
+            <a href="https://www.linkedin.com/in/rajatpandey9310/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/RajatPandey10" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://leetcode.com/RajatPandey9310" target="_blank" title="LeetCode"><i class="fa-solid fa-code"></i></a>
+        </div>
+        <div class="rp-copy">© 2025 RP — Concepts to Creations</div>
+    </div>
+</footer>
+
+<script th:src="@{/webjars/jquery/3.6.0/dist/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/3.4.1/js/bootstrap.min.js}"></script>
+</body>
+</html>
