@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List - RP</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+<!-- Header -->
+<header class="rp-header">
+    <div class="rp-header-inner container">
+        <div class="rp-brand">
+            <img th:src="@{/images/rp_logo.png}" alt="RP Logo" class="rp-logo"/>
+            <div>
+                <div class="rp-title">RP</div>
+                <div class="rp-sub">CONCEPTS TO CREATIONS</div>
+            </div>
+        </div>
+
+        <div class="rp-actions">
+            <a class="btn btn-success" th:href="@{/create-todo}">
+                <i class="fa fa-plus-circle"></i> Add Todo
+            </a>
+        </div>
+    </div>
+</header>
+
+<main class="container rp-main">
+    <h1 class="rp-h1 text-center">Todo List</h1>
+    <p class="rp-muted text-center" th:text="|Happy ${today}|">Today</p>
+
+    <div class="rp-table-wrap">
+        <table class="table table-hover table-condensed table-responsive rp-table">
+            <thead>
+            <tr>
+                <th>Actions</th>
+                <th>Id</th>
+                <th>Description</th>
+                <th>Complete</th>
+                <th>Created Date</th>
+                <th>Modified Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="item: ${todoItems}" th:class="${item.complete} ? 'success' : '' ">
+                <td>
+                    <div class ="btn-group btn-group-xs" role="group">
+                        <a class="btn btn-info btn-xs" th:href="@{/edit/{id}(id=${item.id})}"><i class="fa fa-edit"></i> Edit</a>
+                        <a class="btn btn-danger btn-xs" th:href="@{/delete/{id}(id=${item.id})}"><i class="fa fa-trash"></i> Delete</a>
+                    </div>
+                </td>
+                <td th:text="${item.id}">item_id</td>
+                <td th:text="${item.description}">item_description</td>
+                <td>
+                    <span th:if="${item.complete}" class="label label-success">Yes</span>
+                    <span th:if="${!item.complete}" class="label label-default">No</span>
+                </td>
+                <td th:text="${item.createdDate}">item_createdDate</td>
+                <td th:text="${item.modifyDate}">item_modifiedDate</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="text-center">
+        <a class="btn btn-primary" th:href="@{/create-todo}"><i class="fa fa-plus"></i> Add a Todo</a>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="rp-footer">
+    <div class="container rp-footer-inner">
+        <div class="rp-social">
+            <a href="https://www.linkedin.com/in/rajatpandey9310/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/RajatPandey10" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://leetcode.com/RajatPandey9310" target="_blank" title="LeetCode"><i class="fa-solid fa-code"></i></a>
+        </div>
+        <div class="rp-copy">© 2025 RP — Concepts to Creations</div>
+    </div>
+</footer>
+
+<script th:src="@{/webjars/jquery/3.6.0/dist/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/3.4.1/js/bootstrap.min.js}"></script>
+</body>
+</html>

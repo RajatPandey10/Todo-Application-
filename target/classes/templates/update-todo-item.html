@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Todo - RP</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+<!-- Header -->
+<header class="rp-header">
+    <div class="rp-header-inner container">
+        <div class="rp-brand">
+            <img th:src="@{/images/rp_logo.png}" alt="RP Logo" class="rp-logo"/>
+            <div>
+                <div class="rp-title">RP</div>
+                <div class="rp-sub">CONCEPTS TO CREATIONS</div>
+            </div>
+        </div>
+
+        <div class="rp-actions">
+            <a class="btn btn-default" th:href="@{/}">
+                <i class="fa fa-list"></i> Back
+            </a>
+        </div>
+    </div>
+</header>
+
+
+<main class="container rp-main">
+    <div class="card rp-card">
+        <div class="card-body">
+            <h2 class="rp-h2">Edit Todo</h2>
+
+            <form action="#" th:action="@{/todo/{id}(id=${todo.id})}" th:object="${todo}" method="POST" class="rp-form">
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input class="form-control input-lg" type="text" th:field="*{description}" id="description" placeholder="Add a description">
+                </div>
+
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" th:checked="${complete}==true" th:field="*{complete}" id="complete" />
+                        Complete
+                    </label>
+                </div>
+
+                <div class="rp-actions-row">
+                    <button class="btn btn-primary btn-lg rp-btn" type="submit"><i class="fa fa-save"></i> Update</button>
+                    <a th:href="@{/}" class="btn btn-link rp-link">Cancel</a>
+                </div>
+
+                <input type="hidden" th:field="*{createdDate}" />
+                <input type="hidden" th:field="*{modifyDate}" />
+            </form>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="rp-footer">
+    <div class="container rp-footer-inner">
+        <div class="rp-social">
+            <a href="https://www.linkedin.com/in/rajatpandey9310/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/RajatPandey10" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://leetcode.com/RajatPandey9310" target="_blank" title="LeetCode"><i class="fa-solid fa-code"></i></a>
+        </div>
+        <div class="rp-copy">© 2025 RP — Concepts to Creations</div>
+    </div>
+</footer>
+
+<script th:src="@{/webjars/jquery/3.6.0/dist/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/3.4.1/js/bootstrap.min.js}"></script>
+</body>
+</html>
